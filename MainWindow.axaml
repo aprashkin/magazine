@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+		WindowStartupLocation="CenterScreen"
+		WindowState="Maximized"
+        x:Class="magazine_music.MainWindow"
+		x:CompileBindings="False"
+        Title="magazine_music">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		
+		<StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<TextBlock Grid.Row="0" Text="Welcome to the Music Magazine!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+			<TextBox Name="EmailTextBox" Width="300" Margin="10" Watermark="Email"/>
+			<TextBox Name="PasswordTextBox" Width="300" Margin="10" Watermark="Пароль"/>
+			<Button HorizontalAlignment="Center" Name="LoginButton" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Войти" Click="EnterButton_Click"/>
+			<Button HorizontalAlignment="Center" Name="RegisterButton" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Зарегистрироваться" Click="RegisterButton_Click_1"/>
+		</StackPanel>
+	</Grid>
+</Window>
