@@ -4763,19 +4763,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\prdb\\.nuget\\packages\\": {}
+    "C:\\Users\\kristy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj",
+      "projectUniqueName": "C:\\Users\\kristy\\Source\\Repos\\magazine\\magazine_music.csproj",
       "projectName": "magazine_music",
-      "projectPath": "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj",
-      "packagesPath": "C:\\Users\\prdb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\prdb\\source\\repos\\magazine\\obj\\",
+      "projectPath": "C:\\Users\\kristy\\Source\\Repos\\magazine\\magazine_music.csproj",
+      "packagesPath": "C:\\Users\\kristy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kristy\\Source\\Repos\\magazine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\prdb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kristy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4783,7 +4783,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4801,7 +4800,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -4874,7 +4874,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

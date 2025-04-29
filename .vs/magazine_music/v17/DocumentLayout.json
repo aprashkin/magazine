@@ -1,12 +1,90 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\prdb\\source\\repos\\magazine\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\kristy\\source\\repos\\magazine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\registerwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:registerwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\registerwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:registerwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RegisterWindow.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\RegisterWindow.axaml.cs",
+              "RelativeDocumentMoniker": "RegisterWindow.axaml.cs",
+              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\RegisterWindow.axaml.cs",
+              "RelativeToolTip": "RegisterWindow.axaml.cs",
+              "ViewState": "AgIAALoAAAAAAAAAAAAIwM8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T20:31:42.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegisterWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\RegisterWindow.axaml",
+              "RelativeDocumentMoniker": "RegisterWindow.axaml",
+              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\RegisterWindow.axaml",
+              "RelativeToolTip": "RegisterWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-29T20:31:40.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\MainWindow.axaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.axaml.cs",
+              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainWindow.axaml.cs",
+              "RelativeToolTip": "MainWindow.axaml.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwCYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-29T20:30:55.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainAppWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml",
+              "RelativeDocumentMoniker": "MainAppWindow.axaml",
+              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml",
+              "RelativeToolTip": "MainAppWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-29T20:30:40.422Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

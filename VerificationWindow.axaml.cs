@@ -52,7 +52,7 @@ public partial class VerificationWindow : Window
                         // IsVerified оставляем false, если пользователь просто закрыл окно вручную
     }
 
-    private void VerifyCode(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private async void VerifyCode(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (CodeTextBox.Text == _correctCode)
         {
@@ -60,12 +60,15 @@ public partial class VerificationWindow : Window
             using var dbContext = new User9Context();
             dbContext.Users.Add(_user);
             dbContext.SaveChanges();
+            ButtonReg.IsEnabled = false; 
             _timer?.Stop();
-            var newMainWindow = new MainWindow();
-            newMainWindow.Show();
-            this.Close();
-            
-            
+            await MessageBoxManager.GetMessageBoxStandard("Успешно", "Код подтвержден!").ShowAsync();
+            Close(true);
+        }
+        else
+        {
+            await MessageBoxManager.GetMessageBoxStandard("Ошибка", "Неверный код").ShowAsync();
         }
     }
+
 }

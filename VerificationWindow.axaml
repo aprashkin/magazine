@@ -5,11 +5,12 @@
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="200"
 		Width="300" Height="200"
         x:CompileBindings="False"
+		WindowStartupLocation="CenterScreen"
 		x:Class="magazine_music.VerificationWindow"
         Title="VerificationWindow">
 	<StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10">
 		<TextBlock Text="Введите код из письма:" HorizontalAlignment="Center"/>
 		<TextBox x:Name="CodeTextBox" Width="200" HorizontalAlignment="Center"/>
-		<Button Content="Подтвердить" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Width="110" CornerRadius="10" Click="VerifyCode" HorizontalAlignment="Center"/>
+		<Button Name="ButtonReg" Content="Подтвердить" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Width="110" CornerRadius="10" Click="VerifyCode" HorizontalAlignment="Center"/>
 	</StackPanel>
 </Window>

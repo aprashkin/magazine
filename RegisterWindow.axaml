@@ -17,6 +17,7 @@
 				<TextBlock Grid.Row="0" Text="Welcome to the Music Magazine!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
 				<TextBox Name="EmailTextBox" Width="300" Margin="10" Watermark="Email"/>
 				<TextBox Name="PasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Пароль"/>
+				<TextBox TextChanged="TextBox_TextChanged" Name="RepeatPasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Повторите пароль"/>
 				<TextBox Name="FirstNameTextBox" Width="300" Margin="10" Watermark="Имя"/>
 				<TextBox Name="LastNameTextBox" Width="300" Margin="10" Watermark="Фамилия"/>
 				<DatePicker HorizontalAlignment="Center" Name="DateOfBirthPicker" Width="300" Margin="10"/>
@@ -25,6 +26,7 @@
 					<RadioButton Name="FemaleRadioButton"  GroupName="Gender" Content="Женский"/>
 				</StackPanel>
 				<Button Click="Button_Click" HorizontalAlignment="Center" Name="LoginButton" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Создать учетную запись"/>
+				<Button Click="BackToMain_Click" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Назад"/>
 			</StackPanel>
 	</Grid>
 </Window>

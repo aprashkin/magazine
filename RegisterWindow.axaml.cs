@@ -11,6 +11,9 @@ using MsBox.Avalonia;
 using System.Threading.Tasks;
 using MailKit.Security;
 using MimeKit;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Avalonia.Media;
 
 namespace magazine_music;
 
@@ -39,8 +42,22 @@ public partial class RegisterWindow : Window
     //метод на отправку письма
     static void SendVerificationEmail(string toEmail, string code2)
     {
-        
-
+        string verifyCode = code2;
+        var message = new MimeMessage();
+        message.From.Add(new MailboxAddress("Подтверждение", "aprashkind@yandex.ru"));
+        message.To.Add(new MailboxAddress("", toEmail));
+        message.Subject = "Код подтверждения регистрации";
+        message.Body = new TextPart("plain")
+        {
+            Text = $"Ваш код подтверждения: {verifyCode}"
+        };
+        using (var client = new SmtpClient())
+        {
+            client.Connect("smtp.yandex.ru", 587, SecureSocketOptions.StartTls);
+            client.Authenticate("aprashkind@yandex.ru", "kcabrdzqsjgzuxoi");
+            client.Send(message);
+            client.Disconnect(true);
+        }
     }
     //метод на проверку почты через нет.маил
     private bool IsValidEmail(string email)
@@ -62,9 +79,8 @@ public partial class RegisterWindow : Window
         await box.ShowAsync();
     }
 
-    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private async void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        // переводим дату в формат для бд и хэшируем пароль
         var selectedDate = DateOfBirthPicker.SelectedDate;
         using SHA256 sha256 = SHA256.Create();
         if(string.IsNullOrEmpty(EmailTextBox.Text))
@@ -77,6 +93,13 @@ public partial class RegisterWindow : Window
             ShowError("Введите пароль!");
             return;
         }
+        if (string.IsNullOrEmpty(RepeatPasswordTextBox.Text))
+        {
+            ShowError("Повторите пароль!");
+            return;
+        }
+        ValidatePasswordMatch();
+
         if (string.IsNullOrEmpty(FirstNameTextBox.Text))
         {
             ShowError("Введите имя!");
@@ -90,6 +113,14 @@ public partial class RegisterWindow : Window
         if (!DateOfBirthPicker.SelectedDate.HasValue)
         {
             ShowError("Выберите дату рождения!");
+        }
+        DateTime today = DateTime.Today;
+        int age = today.Year - selectedDate.Value.Year;
+        if (selectedDate.Value.Date > today.AddYears(-age)) age--; // Учитываем день и месяц
+        if (age < 16)
+        {
+            ShowError("Для регистрации вам должно быть не менее 16 лет.");
+            return;
         }
         var hashedPassword = sha256.ComputeHash(Encoding.UTF8.GetBytes(PasswordTextBox.Text));
         
@@ -114,24 +145,69 @@ public partial class RegisterWindow : Window
             ShowError("Неверный Email");
             return;
         }
-        else //тут открываем окошко с верификацией
+        else
         {
-            var newUser = new User
+            using (var dbContext = new User9Context())
             {
-                UserFirstname = FirstNameTextBox.Text,
-                UserLastname = LastNameTextBox.Text,
-                UserEmail = EmailTextBox.Text,
-                GenderId = genderValue,
-                UserPassword = hashedPassword,
-                RoleId = 2,
-                UserBirthday = DateOnly.FromDateTime(DateOfBirthPicker.SelectedDate.Value.Date),
-            };
-            SendVerificationEmail(EmailTextBox.Text, verifyCode);
-            var verificationWindow = new VerificationWindow(verifyCode, newUser);
-            verificationWindow.Show();
-            this.Close();
-            
-            
+                bool emailExists = dbContext.Users.Any(u => u.UserEmail == EmailTextBox.Text);
+                if (emailExists)
+                {
+                    ShowError("Пользователь с таким Email уже зарегистрирован.");
+                    return;
+                }
+
+                // Если email не существует, то создаем нового пользователя и отправляем email с верификацией
+                var newUser = new User
+                {
+                    UserFirstname = FirstNameTextBox.Text,
+                    UserLastname = LastNameTextBox.Text,
+                    UserEmail = EmailTextBox.Text,
+                    GenderId = genderValue,
+                    UserPassword = hashedPassword,
+                    RoleId = 2,
+                    UserBirthday = DateOnly.FromDateTime(DateOfBirthPicker.SelectedDate.Value.Date),
+                };
+                // Генерация и отправка email для верификации     
+                SendVerificationEmail(EmailTextBox.Text, verifyCode);
+                var verificationWindow = new VerificationWindow(verifyCode, newUser);
+                var result = await verificationWindow.ShowDialog<bool>(this);
+                if (result)
+                {
+                    // Если верификация успешна, показываем сообщение
+                    var msgBox = MessageBoxManager
+                        .GetMessageBoxStandard("Регистрация", "Регистрация успешно завершена!");
+                    await msgBox.ShowAsync();
+                    // Открываем окно входа
+                    var loginWindow = new MainWindow();
+                    loginWindow.Show();
+                    this.Close();
+                }
+            }
+        }         
+    }
+
+    private void BackToMain_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        this.Close();
+    }
+    private void ValidatePasswordMatch()
+    {
+        if (PasswordTextBox.Text != RepeatPasswordTextBox.Text)
+        {
+            RepeatPasswordTextBox.BorderBrush = Brushes.Red;
+        }
+        else
+        {
+            RepeatPasswordTextBox.BorderBrush = Brushes.Green;
         }
     }
+
+    // Обработчик TextChanged
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        ValidatePasswordMatch();
+    }
+
 }
