@@ -16,7 +16,7 @@
 			<StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 				<TextBlock Grid.Row="0" Text="Welcome to the Music Magazine!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
 				<TextBox Name="EmailTextBox" Width="300" Margin="10" Watermark="Email"/>
-				<TextBox Name="PasswordTextBox" Width="300" Margin="10" Watermark="Пароль"/>
+				<TextBox Name="PasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Пароль"/>
 				<TextBox Name="FirstNameTextBox" Width="300" Margin="10" Watermark="Имя"/>
 				<TextBox Name="LastNameTextBox" Width="300" Margin="10" Watermark="Фамилия"/>
 				<DatePicker HorizontalAlignment="Center" Name="DateOfBirthPicker" Width="300" Margin="10"/>

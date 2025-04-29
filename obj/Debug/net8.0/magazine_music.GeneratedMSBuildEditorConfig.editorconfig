@@ -23,23 +23,21 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = magazine_music
-build_property.ProjectDir = C:\Users\kristy\source\repos\magazine_music\magazine_music\
+build_property.ProjectDir = C:\Users\prdb\source\repos\magazine\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/kristy/source/repos/magazine_music/magazine_music/App.axaml]
+[C:/Users/prdb/source/repos/magazine/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/kristy/source/repos/magazine_music/magazine_music/MainAppWindow.axaml]
+[C:/Users/prdb/source/repos/magazine/MainAppWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/kristy/source/repos/magazine_music/magazine_music/MainWindow.axaml]
+[C:/Users/prdb/source/repos/magazine/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/kristy/source/repos/magazine_music/magazine_music/RegisterWindow.axaml]
+[C:/Users/prdb/source/repos/magazine/RegisterWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/kristy/source/repos/magazine_music/magazine_music/VerificationWindow.axaml]
+[C:/Users/prdb/source/repos/magazine/VerificationWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

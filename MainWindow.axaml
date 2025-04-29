@@ -17,7 +17,7 @@
 		<StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 			<TextBlock Grid.Row="0" Text="Welcome to the Music Magazine!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
 			<TextBox Name="EmailTextBox" Width="300" Margin="10" Watermark="Email"/>
-			<TextBox Name="PasswordTextBox" Width="300" Margin="10" Watermark="Пароль"/>
+			<TextBox Name="PasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Пароль"/>
 			<Button HorizontalAlignment="Center" Name="LoginButton" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Войти" Click="EnterButton_Click"/>
 			<Button HorizontalAlignment="Center" Name="RegisterButton" Background="Transparent" BorderBrush="Gray" BorderThickness="1" Margin="10" Content="Зарегистрироваться" Click="RegisterButton_Click_1"/>
 		</StackPanel>

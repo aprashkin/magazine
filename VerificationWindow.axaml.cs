@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using magazine_music.Context;
 using MsBox.Avalonia;
 using System;
 
@@ -12,13 +13,14 @@ public partial class VerificationWindow : Window
     private string _correctCode;
     private DispatcherTimer _timer;
     private TimeSpan _timeLimit = TimeSpan.FromMinutes(5);
+    private User _user;
 
     public bool IsVerified { get; private set; } = false;
-    public VerificationWindow(string correctCode)
+    public VerificationWindow(string correctCode, User user)
     {
         InitializeComponent();
         _correctCode = correctCode;
-
+        _user = user;
         StartTimer();
         this.Closing += OnWindowClosing;
     }
@@ -55,8 +57,15 @@ public partial class VerificationWindow : Window
         if (CodeTextBox.Text == _correctCode)
         {
             IsVerified = true;
+            using var dbContext = new User9Context();
+            dbContext.Users.Add(_user);
+            dbContext.SaveChanges();
             _timer?.Stop();
+            var newMainWindow = new MainWindow();
+            newMainWindow.Show();
             this.Close();
+            
+            
         }
     }
 }

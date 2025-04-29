@@ -11,19 +11,19 @@ public partial class User
 
     public string UserLastname { get; set; } = null!;
 
-    public DateOnly UserBirthday { get; set; }
+    public DateOnly? UserBirthday { get; set; }
 
-    public int GenderId { get; set; }
+    public int? GenderId { get; set; }
 
     public byte[] UserPassword { get; set; } = null!;
 
-    public int RoleId { get; set; }
+    public int? RoleId { get; set; }
 
     public string UserEmail { get; set; } = null!;
 
-    public virtual Gender Gender { get; set; } = null!;
+    public virtual Gender? Gender { get; set; }
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-    public virtual Role Role { get; set; } = null!;
+    public virtual Role? Role { get; set; }
 }

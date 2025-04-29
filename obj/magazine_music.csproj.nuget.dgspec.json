@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kristy\\source\\repos\\magazine_music\\magazine_music\\magazine_music.csproj": {}
+    "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kristy\\source\\repos\\magazine_music\\magazine_music\\magazine_music.csproj": {
+    "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kristy\\source\\repos\\magazine_music\\magazine_music\\magazine_music.csproj",
+        "projectUniqueName": "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj",
         "projectName": "magazine_music",
-        "projectPath": "C:\\Users\\kristy\\source\\repos\\magazine_music\\magazine_music\\magazine_music.csproj",
-        "packagesPath": "C:\\Users\\kristy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kristy\\source\\repos\\magazine_music\\magazine_music\\obj\\",
+        "projectPath": "C:\\Users\\prdb\\source\\repos\\magazine\\magazine_music.csproj",
+        "packagesPath": "C:\\Users\\prdb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\prdb\\source\\repos\\magazine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kristy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\prdb\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,8 +40,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -70,6 +70,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.11.0, )"
+            },
             "MessageBox.Avalonia": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -83,6 +87,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.11.0, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
@@ -105,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

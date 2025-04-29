@@ -18,7 +18,7 @@ namespace magazine_music
         }
         private void EnterButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            using var dbContext = new PostgresContext();
+            using var dbContext = new User9Context();
             var email = EmailTextBox.Text;
             var password = PasswordTextBox.Text;
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
