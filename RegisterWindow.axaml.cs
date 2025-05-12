@@ -197,10 +197,12 @@ public partial class RegisterWindow : Window
         if (PasswordTextBox.Text != RepeatPasswordTextBox.Text)
         {
             RepeatPasswordTextBox.BorderBrush = Brushes.Red;
+            ErrorPasswordBox.IsVisible = true;
         }
         else
         {
             RepeatPasswordTextBox.BorderBrush = Brushes.Green;
+            ErrorPasswordBox.IsVisible = false;
         }
     }
 

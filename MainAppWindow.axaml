@@ -4,7 +4,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="magazine_music.MainAppWindow"
+		WindowStartupLocation="CenterScreen"
+		WindowState="Maximized"
 		x:CompileBindings="False"
         Title="MainAppWindow">
-  welcome!
+	<Grid ShowGridLines="False" ColumnDefinitions="*, 5*, *" RowDefinitions="*, 6*, *">
+		<Border Grid.Column="1" Grid.Row="1" CornerRadius="12" BorderBrush="#ddd" BorderThickness="1">
+			<ListBox Name="ProductListBox" Background="Transparent" Padding="10">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Border BorderBrush="#ccc" BorderThickness="1" Margin="0" CornerRadius="10" Padding="10">
+							<StackPanel Orientation="Horizontal" Spacing="20">
+								<StackPanel Margin="">
+									<Border Width="120" Height="120" Background="#f9f9f9" CornerRadius="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="#bbb" BorderThickness="1">
+										<Image Source="{Binding Image}" Stretch="UniformToFill" Width="100" Height="100" Margin="10"/>
+									</Border>
+								</StackPanel>
+								<StackPanel Background="Transparent">
+									<TextBlock Text="{Binding InstrumentName}" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,5" />
+									<TextBlock Text="{Binding InstrumentDescription}" FontSize="14" Foreground="#666" TextWrapping="Wrap" MaxWidth="350" Margin="0,0,0,10"/>
+									<TextBlock Text="{Binding BrandName, StringFormat='Бренд: {0}'}" FontSize="14" FontWeight="SemiBold" Foreground="#2a5d9f" Margin="0,0,0,5"/>
+									<TextBlock Text="{Binding TypeName}" FontSize="12" FontStyle="Italic" Foreground="#555" Margin="0,0,0,10"/>
+									<TextBlock Text="{Binding InstrumentPrice, StringFormat='Цена: {0:C}'}" Foreground="#2e7d32" FontSize="14" FontWeight="Bold" Margin="0,0,0,5"/>
+									<TextBlock Text="{Binding InstrumentQuantity, StringFormat='В наличии: {0} шт.'}" Foreground="#333" FontSize="12"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Border>
+	</Grid>
 </Window>
