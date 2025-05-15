@@ -10,7 +10,7 @@
         Title="MainAppWindow">
 	<Grid ShowGridLines="False" ColumnDefinitions="*, 5*, *" RowDefinitions="*, 6*, *">
 		<Border Grid.Column="1" Grid.Row="1" CornerRadius="12" BorderBrush="#ddd" BorderThickness="1">
-			<ListBox Name="ProductListBox" Background="Transparent" Padding="10">
+			<ListBox Name="ProductListBox" DoubleTapped="ListBox_DoubleTapped" Background="Transparent" Padding="10">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<Border BorderBrush="#ccc" BorderThickness="1" Margin="0" CornerRadius="10" Padding="10">

@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="700"
+        x:Class="magazine_music.ProductDetailsWindow"
+        Title="Детали товара"
+        WindowStartupLocation="CenterOwner"
+        Background="#f4f4f4">
+	<Border Padding="30"
+            Margin="30"
+            Background="White"
+            CornerRadius="16"
+            BorderThickness="1"
+            BorderBrush="#ddd">
+		<StackPanel Spacing="20" HorizontalAlignment="Center">
+
+			<!-- Изображение -->
+			<Border Width="220" Height="220" Background="#f9f9f9" CornerRadius="12"
+                    HorizontalAlignment="Center" BorderBrush="#ccc" BorderThickness="1" >
+				<Image Name="ProductImage" Stretch="UniformToFill" Margin="10"/>
+			</Border>
+
+			<!-- Название -->
+			<TextBlock Name="ProductName"
+                       FontSize="26"
+                       FontWeight="Bold"
+                       Foreground="#222"
+                       TextAlignment="Center"/>
+
+			<!-- Бренд -->
+			<TextBlock Name="BrandName"
+                       FontSize="18"
+                       FontWeight="SemiBold"
+                       Foreground="#2a5d9f"
+                       TextAlignment="Center"/>
+
+			<!-- Описание -->
+			<TextBlock Name="ProductDescription"
+                       FontSize="14"
+                       Foreground="#555"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       MaxWidth="400"/>
+
+			<!-- Цена -->
+			<TextBlock Name="ProductPrice"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="#2e7d32"
+                       TextAlignment="Center"/>
+
+			<!-- Кнопка -->
+			<Button Name="AddToCartButton"
+                    Content="Добавить в корзину"
+                    Width="200"
+                    Height="40"
+                    Background="#2a5d9f"
+                    Foreground="White"
+                    FontWeight="SemiBold"
+                    CornerRadius="8"
+                    HorizontalAlignment="Center"/>
+		</StackPanel>
+	</Border>
+</Window>

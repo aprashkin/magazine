@@ -21,6 +21,8 @@ public partial class User9Context : DbContext
 
     public virtual DbSet<Instrument> Instruments { get; set; }
 
+    public virtual DbSet<Instrumentimage> Instrumentimages { get; set; }
+
     public virtual DbSet<InstrumentsType> InstrumentsTypes { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
@@ -77,7 +79,6 @@ public partial class User9Context : DbContext
             entity.Property(e => e.InstrumentName)
                 .HasMaxLength(255)
                 .HasColumnName("instrument_name");
-            entity.Property(e => e.InstrumentPhoto).HasColumnName("instrument_photo");
             entity.Property(e => e.InstrumentPrice)
                 .HasPrecision(10, 2)
                 .HasColumnName("instrument_price");
@@ -91,6 +92,23 @@ public partial class User9Context : DbContext
             entity.HasOne(d => d.Type).WithMany(p => p.Instruments)
                 .HasForeignKey(d => d.TypeId)
                 .HasConstraintName("instruments_type_id_fkey");
+        });
+
+        modelBuilder.Entity<Instrumentimage>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("instrumentimages", "magazine");
+
+            entity.Property(e => e.ImageId).HasColumnName("image_id");
+            entity.Property(e => e.ImagePath)
+                .HasMaxLength(255)
+                .HasColumnName("image_path");
+            entity.Property(e => e.InstrumentId).HasColumnName("instrument_id");
+
+            entity.HasOne(d => d.Instrument).WithMany()
+                .HasForeignKey(d => d.InstrumentId)
+                .HasConstraintName("instrumentimages_instrument_id_fkey");
         });
 
         modelBuilder.Entity<InstrumentsType>(entity =>

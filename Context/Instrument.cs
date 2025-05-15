@@ -13,8 +13,6 @@ public partial class Instrument
 
     public int? BrandId { get; set; }
 
-    public string? InstrumentPhoto { get; set; }
-
     public decimal? InstrumentPrice { get; set; }
 
     public int? InstrumentQuantity { get; set; }

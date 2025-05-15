@@ -77,7 +77,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.InstrumentName)
                 .HasMaxLength(150)
                 .HasColumnName("instrument_name");
-            entity.Property(e => e.InstrumentPhoto).HasColumnName("instrument_photo");
+            /*entity.Property(e => e.InstrumentPhoto).HasColumnName("instrument_photo");*/
             entity.Property(e => e.InstrumentPrice)
                 .HasPrecision(10, 2)
                 .HasColumnName("instrument_price");
