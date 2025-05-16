@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
 using magazine_music.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -22,36 +23,52 @@ public partial class MainAppWindow : Window
     public void LoadData()
     {
         using var dbContext = new User9Context();
-        var products = dbContext.Instruments
-            .Include(i => i.Type)
+
+        // Загружаем инструменты с брендами и типами
+        var instruments = dbContext.Instruments
             .Include(i => i.Brand)
-            .Select(i => new ProductPresenter
-            {
-                InstrumentId = i.InstrumentId,
-                InstrumentName = i.InstrumentName,
-                InstrumentDescription = i.InstrumentDescription,
-                InstrumentPrice = i.InstrumentPrice,
-                InstrumentQuantity = i.InstrumentQuantity,
-                BrandId = i.Brand.BrandId,
-                BrandName = i.Brand.BrandName,
-                TypeId = i.TypeId,
-                TypeName = i.Type.TypeName,
-                // Добавляем путь к первой картинке в новое свойство
-                InstrumentPhoto = dbContext.Instrumentimages
-                    .Where(img => img.InstrumentId == i.InstrumentId)
-                    .OrderBy(img => img.ImageId)
-                    .Select(img => img.ImagePath)
-                    .FirstOrDefault()
-            }).ToList();
+            .Include(i => i.Type)
+            .ToList();
+
+        // Загружаем все изображения
+        var allImages = dbContext.Instrumentimages.ToList();
+
+        // Преобразуем в ProductPresenter
+        var products = instruments.Select(instrument => new ProductPresenter
+        {
+            InstrumentId = instrument.InstrumentId,
+            InstrumentName = instrument.InstrumentName,
+            InstrumentDescription = instrument.InstrumentDescription,
+            InstrumentPrice = instrument.InstrumentPrice,
+            InstrumentQuantity = instrument.InstrumentQuantity,
+            BrandId = instrument.BrandId,
+            BrandName = instrument.Brand?.BrandName,
+            TypeId = instrument.TypeId,
+            TypeName = instrument.Type?.TypeName,
+
+            // Главное фото — берём первое из связанных
+            InstrumentPhoto = allImages
+                .Where(img => img.InstrumentId == instrument.InstrumentId)
+                .Select(img => img.ImagePath)
+                .FirstOrDefault(),
+
+            // Все изображения
+            ImagePaths = allImages
+                .Where(img => img.InstrumentId == instrument.InstrumentId)
+                .Select(img => img.ImagePath)
+                .ToList()
+        }).ToList();
 
         productPresenters = new ObservableCollection<ProductPresenter>(products);
         ProductListBox.ItemsSource = productPresenters;
     }
 
+
     public class ProductPresenter : Instrument
     {
         public string BrandName { get; set; }
         public string TypeName { get; set; }
+        public List<string> ImagePaths { get; set; } 
 
         // Добавляем здесь свойство InstrumentPhoto, чтобы оно было доступно
         public string InstrumentPhoto { get; set; }
@@ -81,6 +98,7 @@ public partial class MainAppWindow : Window
         {
             var productDetailsWindow = new ProductDetailsWindow(selectedProduct);
             productDetailsWindow.Show();
+            this.Close();
         }
     }
 }
