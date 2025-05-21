@@ -101,4 +101,11 @@ public partial class MainAppWindow : Window
             this.Close();
         }
     }
+
+    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var profileWindow = new ProfileWindow();
+        profileWindow.Show();
+        this.Close();
+    }
 }

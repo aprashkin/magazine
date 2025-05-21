@@ -34,6 +34,7 @@ namespace magazine_music
                 var user = dbContext.Users.FirstOrDefault(u => u.UserEmail == email && u.UserPassword == unhashedPassword);
                 if (user != null)
                 {
+                    Session.CurrentUser = user;
                     var newWindow = new MainAppWindow();
                     newWindow.Show();
                     this.Close();

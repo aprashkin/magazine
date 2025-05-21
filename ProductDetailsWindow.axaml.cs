@@ -32,7 +32,7 @@ public partial class ProductDetailsWindow : Window
         this.FindControl<TextBlock>("ProductNameText").Text = _product.InstrumentName;
         this.FindControl<TextBlock>("ProductDescriptionText").Text = _product.InstrumentDescription;
         this.FindControl<TextBlock>("ProductPriceText").Text = $"Цена: {_product.InstrumentPrice} ₽";
-        this.FindControl<TextBlock>("ProductTypeText").Text = $"Количество: {_product.TypeName}";
+        this.FindControl<TextBlock>("ProductTypeText").Text = $"Тип инструмента: {_product.TypeName}";
 
         // Отображение главной картинки
         var mainImage = this.FindControl<Image>("ProductImage");
@@ -83,8 +83,7 @@ public partial class ProductDetailsWindow : Window
 
         if (button != null && !isInCart)
         {
-            // Добавление в корзину, если хочешь
-            // CartService.AddToCart(selectedProduct);
+            CartService.AddToCart(userId: Session.CurrentUser.UserId, _product.InstrumentId);
             MessageBoxManager.GetMessageBoxStandard("Успешно", "Товар добавлен в корзину").ShowAsync();
             button.Content = "Уже в корзине";
             button.IsEnabled = false;

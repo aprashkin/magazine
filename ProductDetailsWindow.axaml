@@ -7,7 +7,6 @@
 		WindowState="Maximized">
 
 	<ScrollViewer VerticalScrollBarVisibility="Auto">
-		
 		<StackPanel Margin="20" Spacing="15">
 			<Button Name="BackButton"
                 Content="Назад"

@@ -34,5 +34,6 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 		</Border>
+		<Button Grid.Column="2" HorizontalAlignment="Center" Content="Профиль" Background="Transparent" BorderBrush="Gray" Click="Button_Click"/>
 	</Grid>
 </Window>

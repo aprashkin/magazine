@@ -27,6 +27,8 @@ public partial class User9Context : DbContext
 
     public virtual DbSet<Order> Orders { get; set; }
 
+    public virtual DbSet<OrderItem> OrderItems { get; set; }
+
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<Status> Statuses { get; set; }
@@ -132,7 +134,9 @@ public partial class User9Context : DbContext
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Address).HasColumnName("address");
             entity.Property(e => e.InstrumentId).HasColumnName("instrument_id");
-            entity.Property(e => e.OrderDate).HasColumnName("order_date");
+            entity.Property(e => e.OrderDate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("order_date");
             entity.Property(e => e.StatusId).HasColumnName("status_id");
             entity.Property(e => e.TotalAmount)
                 .HasPrecision(10, 2)
@@ -150,6 +154,33 @@ public partial class User9Context : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("orders_user_id_fkey");
+        });
+
+        modelBuilder.Entity<OrderItem>(entity =>
+        {
+            entity.HasKey(e => e.OrderItemId).HasName("order_items_pkey");
+
+            entity.ToTable("order_items", "magazine");
+
+            entity.Property(e => e.OrderItemId).HasColumnName("order_item_id");
+            entity.Property(e => e.InstrumentId).HasColumnName("instrument_id");
+            entity.Property(e => e.OrderId).HasColumnName("order_id");
+            entity.Property(e => e.Price)
+                .HasPrecision(10, 2)
+                .HasColumnName("price");
+            entity.Property(e => e.Quantity)
+                .HasDefaultValue(1)
+                .HasColumnName("quantity");
+
+            entity.HasOne(d => d.Instrument).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.InstrumentId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("order_items_instrument_id_fkey");
+
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderItems)
+                .HasForeignKey(d => d.OrderId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("order_items_order_id_fkey");
         });
 
         modelBuilder.Entity<Role>(entity =>
