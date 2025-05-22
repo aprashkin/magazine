@@ -1,39 +1,51 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="magazine_music.MainAppWindow"
-		WindowStartupLocation="CenterScreen"
-		WindowState="Maximized"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
 		x:CompileBindings="False"
         Title="MainAppWindow">
-	<Grid ShowGridLines="False" ColumnDefinitions="*, 5*, *" RowDefinitions="*, 6*, *">
-		<Border Grid.Column="1" Grid.Row="1" CornerRadius="12" BorderBrush="#ddd" BorderThickness="1">
-			<ListBox Name="ProductListBox" DoubleTapped="ListBox_DoubleTapped" Background="Transparent" Padding="10">
-				<ListBox.ItemTemplate>
+
+	<Grid RowDefinitions="Auto,Auto,*,Auto" ColumnDefinitions="*,5*,*">
+
+		<!-- Панель фильтров -->
+		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Spacing="10" Margin="10">
+			<!-- Поиск -->
+			<TextBox Name="SearchBox" Width="200" Watermark="Поиск..." KeyUp="SearchBox_KeyUp"/>
+
+			<!-- Фильтр по типу -->
+			<ComboBox Name="TypeFilterComboBox" Width="150" DisplayMemberBinding="{Binding TypeName}" SelectionChanged="ComboBox_SelectionChanged_1"/>
+
+			<!-- Фильтр по бренду -->
+			<ComboBox Name="BrandFilterComboBox" Width="150" DisplayMemberBinding="{Binding BrandName}" SelectionChanged="ComboBox_SelectionChanged_1"/>
+
+			
+			
+		</StackPanel>
+
+		<!-- Сетка товаров -->
+		<ScrollViewer Grid.Row="2" Grid.Column="1">
+			<ItemsControl Name="ProductItemsControl">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
 					<DataTemplate>
-						<Border BorderBrush="#ccc" BorderThickness="1" Margin="0" CornerRadius="10" Padding="10">
-							<StackPanel Orientation="Horizontal" Spacing="20">
-								<StackPanel Margin="">
-									<Border Width="120" Height="120" Background="#f9f9f9" CornerRadius="12" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="#bbb" BorderThickness="1">
-										<Image Source="{Binding Image}" Stretch="UniformToFill" Width="100" Height="100" Margin="10"/>
-									</Border>
-								</StackPanel>
-								<StackPanel Background="Transparent">
-									<TextBlock Text="{Binding InstrumentName}" FontSize="18" FontWeight="Bold" Foreground="#333" Margin="0,0,0,5" />
-									<TextBlock Text="{Binding InstrumentDescription}" FontSize="14" Foreground="#666" TextWrapping="Wrap" MaxWidth="350" Margin="0,0,0,10"/>
-									<TextBlock Text="{Binding BrandName, StringFormat='Бренд: {0}'}" FontSize="14" FontWeight="SemiBold" Foreground="#2a5d9f" Margin="0,0,0,5"/>
-									<TextBlock Text="{Binding TypeName}" FontSize="12" FontStyle="Italic" Foreground="#555" Margin="0,0,0,10"/>
-									<TextBlock Text="{Binding InstrumentPrice, StringFormat='Цена: {0:C}'}" Foreground="#2e7d32" FontSize="14" FontWeight="Bold" Margin="0,0,0,5"/>
-									<TextBlock Text="{Binding InstrumentQuantity, StringFormat='В наличии: {0} шт.'}" Foreground="#333" FontSize="12"/>
-								</StackPanel>
+						<Border Width="250" Height="300" Margin="10" BorderBrush="#ccc" BorderThickness="1" CornerRadius="10">
+							<StackPanel Spacing="5" Margin="10" DoubleTapped="Item_DoubleTapped">
+								<Image Source="{Binding Image}" Stretch="UniformToFill" Height="120"/>
+								<TextBlock Text="{Binding InstrumentName}" FontWeight="Bold" FontSize="16"/>
+								<TextBlock Text="{Binding InstrumentDescription}" FontSize="12" TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding BrandName, StringFormat='Бренд: {0}'}" FontSize="12"/>
+								<TextBlock Text="{Binding InstrumentPrice, StringFormat='Цена: {0:C}'}" FontSize="14" Foreground="Green"/>
 							</StackPanel>
 						</Border>
 					</DataTemplate>
-				</ListBox.ItemTemplate>
-			</ListBox>
-		</Border>
-		<Button Grid.Column="2" HorizontalAlignment="Center" Content="Профиль" Background="Transparent" BorderBrush="Gray" Click="Button_Click"/>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
 	</Grid>
+
 </Window>

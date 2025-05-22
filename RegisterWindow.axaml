@@ -14,7 +14,7 @@
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 			<StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-				<TextBlock Grid.Row="0" Text="Welcome to the Music Magazine!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
+				<TextBlock Grid.Row="0" Text="Добро пожаловать!" FontSize="24" HorizontalAlignment="Center" Margin="10"/>
 				<TextBox Name="EmailTextBox" Width="300" Margin="10" Watermark="Email"/>
 				<TextBox Name="PasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Пароль"/>
 				<TextBox TextChanged="TextBox_TextChanged" Name="RepeatPasswordTextBox" Width="300" Margin="10" PasswordChar="*" Watermark="Повторите пароль"/>

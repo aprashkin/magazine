@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
 using magazine_music.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,10 +15,13 @@ namespace magazine_music;
 public partial class MainAppWindow : Window
 {
     public ObservableCollection<ProductPresenter> productPresenters { get; set; }
+    private ObservableCollection<ProductPresenter> allProducts;
+    private decimal selectedMaxPrice;
     public MainAppWindow()
     {
         InitializeComponent();
         LoadData();
+        LoadFilters();
     }
 
     public void LoadData()
@@ -59,8 +63,8 @@ public partial class MainAppWindow : Window
                 .ToList()
         }).ToList();
 
-        productPresenters = new ObservableCollection<ProductPresenter>(products);
-        ProductListBox.ItemsSource = productPresenters;
+        allProducts = new ObservableCollection<ProductPresenter>(products);
+        ProductItemsControl.ItemsSource = allProducts;
     }
 
 
@@ -92,20 +96,79 @@ public partial class MainAppWindow : Window
         }
     }
 
-    private void ListBox_DoubleTapped(object? sender, Avalonia.Input.TappedEventArgs e)
+    private void LoadFilters()
     {
-        if (ProductListBox.SelectedItem is ProductPresenter selectedProduct)
-        {
-            var productDetailsWindow = new ProductDetailsWindow(selectedProduct);
-            productDetailsWindow.Show();
-            this.Close();
-        }
+        using var dbContext = new User9Context();
+
+        // Типы инструментов
+        var types = dbContext.InstrumentsTypes.ToList();
+        types.Insert(0, new InstrumentsType { TypeId = 0, TypeName = "Все" }); // пункт для сброса фильтра
+        TypeFilterComboBox.ItemsSource = types;
+        TypeFilterComboBox.SelectedIndex = 0;
+
+        // Бренды
+        var brands = dbContext.Brands.ToList();
+        brands.Insert(0, new Brand { BrandId = 0, BrandName = "Все" }); // пункт для сброса фильтра
+        BrandFilterComboBox.ItemsSource = brands;
+        BrandFilterComboBox.SelectedIndex = 0;
     }
+
+    
+
 
     private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         var profileWindow = new ProfileWindow();
         profileWindow.Show();
         this.Close();
+    }
+
+    private void SearchBox_KeyUp(object? sender, Avalonia.Input.KeyEventArgs e)
+    {
+        var query = SearchBox.Text?.Trim().ToLower();
+
+        if (string.IsNullOrWhiteSpace(query))
+        {
+            ProductItemsControl.ItemsSource = allProducts;
+        }
+        else
+        {
+            var filtered = allProducts
+                .Where(p =>
+                    p.InstrumentName.ToLower().Contains(query) ||
+                    p.BrandName.ToLower().Contains(query) ||
+                    p.TypeName.ToLower().Contains(query))
+                .ToList();
+
+            ProductItemsControl.ItemsSource = filtered;
+        }
+    }
+
+    private void Item_DoubleTapped(object? sender, Avalonia.Input.TappedEventArgs e)
+    {
+        if (sender is StackPanel panel && panel.DataContext is ProductPresenter product)
+        {
+            var detailsWindow = new ProductDetailsWindow(product);
+            detailsWindow.Show();
+            this.Close();
+        }
+    }
+
+    private void ComboBox_SelectionChanged_1(object? sender, Avalonia.Controls.SelectionChangedEventArgs e)
+    {
+        var search = SearchBox.Text?.ToLower() ?? "";
+        var selectedType = TypeFilterComboBox.SelectedItem as InstrumentsType;
+        var selectedBrand = BrandFilterComboBox.SelectedItem as Brand;
+
+        var filtered = allProducts.Where(p =>
+            (string.IsNullOrWhiteSpace(search) ||
+             p.InstrumentName.ToLower().Contains(search) ||
+             p.BrandName.ToLower().Contains(search) ||
+             p.TypeName.ToLower().Contains(search)) &&
+            (selectedType == null || selectedType.TypeId == 0 || p.TypeId == selectedType.TypeId) &&
+            (selectedBrand == null || selectedBrand.BrandId == 0 || p.BrandId == selectedBrand.BrandId)
+        ).ToList();
+
+        ProductItemsControl.ItemsSource = filtered;
     }
 }

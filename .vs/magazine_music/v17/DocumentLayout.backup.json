@@ -3,40 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kristy\\source\\repos\\magazine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\productdetailswindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:productdetailswindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainappwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainappwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\profilewindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:profilewindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\profilewindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:profilewindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\productdetailswindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:productdetailswindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\context\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:context\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|c:\\users\\kristy\\source\\repos\\magazine\\mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{DA0A8060-0A3F-4F01-A966-81CD19453719}|magazine_music.csproj|solutionrelative:mainappwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,113 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProfileWindow.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\ProfileWindow.axaml.cs",
-              "RelativeDocumentMoniker": "ProfileWindow.axaml.cs",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\ProfileWindow.axaml.cs",
-              "RelativeToolTip": "ProfileWindow.axaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAxwCMAAABXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T15:08:33.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartService.cs",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\CartService.cs",
-              "RelativeDocumentMoniker": "CartService.cs",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\CartService.cs",
-              "RelativeToolTip": "CartService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAswB8AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T14:35:42.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainWindow.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\MainWindow.axaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.axaml.cs",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainWindow.axaml.cs",
-              "RelativeToolTip": "MainWindow.axaml.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAUwCUAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T14:32:47.781Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductDetailsWindow.axaml",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\ProductDetailsWindow.axaml",
-              "RelativeDocumentMoniker": "ProductDetailsWindow.axaml",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\ProductDetailsWindow.axaml",
-              "RelativeToolTip": "ProductDetailsWindow.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T16:59:00.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductDetailsWindow.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\ProductDetailsWindow.axaml.cs",
-              "RelativeDocumentMoniker": "ProductDetailsWindow.axaml.cs",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\ProductDetailsWindow.axaml.cs",
-              "RelativeToolTip": "ProductDetailsWindow.axaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAYwCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:59:00.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainAppWindow.axaml.cs",
               "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml.cs",
               "RelativeDocumentMoniker": "MainAppWindow.axaml.cs",
               "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml.cs*",
               "RelativeToolTip": "MainAppWindow.axaml.cs*",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAAAD4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAJMAAAAAAAAAAADwv6sAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T20:27:43.277Z",
+              "WhenOpened": "2025-05-22T10:22:06.127Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainAppWindow.axaml",
               "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml",
               "RelativeDocumentMoniker": "MainAppWindow.axaml",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml*",
-              "RelativeToolTip": "MainAppWindow.axaml*",
+              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\MainAppWindow.axaml",
+              "RelativeToolTip": "MainAppWindow.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-29T20:30:40.422Z",
+              "WhenOpened": "2025-05-22T10:22:06.495Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProfileWindow.axaml",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\ProfileWindow.axaml",
-              "RelativeDocumentMoniker": "ProfileWindow.axaml",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\ProfileWindow.axaml",
-              "RelativeToolTip": "ProfileWindow.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-18T15:08:33.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Order.cs",
-              "DocumentMoniker": "C:\\Users\\kristy\\source\\repos\\magazine\\Context\\Order.cs",
-              "RelativeDocumentMoniker": "Context\\Order.cs",
-              "ToolTip": "C:\\Users\\kristy\\source\\repos\\magazine\\Context\\Order.cs",
-              "RelativeToolTip": "Context\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-18T14:37:20.211Z"
             }
           ]
         }
