@@ -133,7 +133,6 @@ public partial class User9Context : DbContext
 
             entity.Property(e => e.OrderId).HasColumnName("order_id");
             entity.Property(e => e.Address).HasColumnName("address");
-            entity.Property(e => e.InstrumentId).HasColumnName("instrument_id");
             entity.Property(e => e.OrderDate)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("order_date");
@@ -142,10 +141,6 @@ public partial class User9Context : DbContext
                 .HasPrecision(10, 2)
                 .HasColumnName("total_amount");
             entity.Property(e => e.UserId).HasColumnName("user_id");
-
-            entity.HasOne(d => d.Instrument).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.InstrumentId)
-                .HasConstraintName("orders_instrument_id_fkey");
 
             entity.HasOne(d => d.Status).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.StatusId)

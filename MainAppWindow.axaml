@@ -3,27 +3,16 @@
         x:Class="magazine_music.MainAppWindow"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+		Width="1920" Height="1080"
 		x:CompileBindings="False"
         Title="MainAppWindow">
 
 	<Grid RowDefinitions="Auto,Auto,*,Auto" ColumnDefinitions="*,5*,*">
-
-		<!-- Панель фильтров -->
 		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Spacing="10" Margin="10">
-			<!-- Поиск -->
 			<TextBox Name="SearchBox" Width="200" Watermark="Поиск..." KeyUp="SearchBox_KeyUp"/>
-
-			<!-- Фильтр по типу -->
 			<ComboBox Name="TypeFilterComboBox" Width="150" DisplayMemberBinding="{Binding TypeName}" SelectionChanged="ComboBox_SelectionChanged_1"/>
-
-			<!-- Фильтр по бренду -->
 			<ComboBox Name="BrandFilterComboBox" Width="150" DisplayMemberBinding="{Binding BrandName}" SelectionChanged="ComboBox_SelectionChanged_1"/>
-
-			
-			
 		</StackPanel>
-
-		<!-- Сетка товаров -->
 		<ScrollViewer Grid.Row="2" Grid.Column="1">
 			<ItemsControl Name="ProductItemsControl">
 				<ItemsControl.ItemsPanel>
@@ -35,7 +24,7 @@
 					<DataTemplate>
 						<Border Width="250" Height="300" Margin="10" BorderBrush="#ccc" BorderThickness="1" CornerRadius="10">
 							<StackPanel Spacing="5" Margin="10" DoubleTapped="Item_DoubleTapped">
-								<Image Source="{Binding Image}" Stretch="UniformToFill" Height="120"/>
+								<Image Source="{Binding Image}" Stretch="UniformToFill" Height="160"/>
 								<TextBlock Text="{Binding InstrumentName}" FontWeight="Bold" FontSize="16"/>
 								<TextBlock Text="{Binding InstrumentDescription}" FontSize="12" TextWrapping="Wrap"/>
 								<TextBlock Text="{Binding BrandName, StringFormat='Бренд: {0}'}" FontSize="12"/>
@@ -46,6 +35,24 @@
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
 		</ScrollViewer>
+		<StackPanel Orientation="Horizontal" Spacing="10" Margin="10">
+			<Button Content="Профиль"
+                Width="80"
+                Height="30"
+                Background="Transparent"
+				HorizontalAlignment="Center"
+				BorderBrush="Gray"
+				Click="Button_Click_1"/>
+			<Button Content="Добавить товар"
+					Width="130"
+					Height="30"
+					Name="Add_Button"
+					Click="Button_Click_2"
+					Background="Transparent"
+					HorizontalAlignment="Center"
+					BorderBrush="Gray"
+				/>
+		</StackPanel>
 	</Grid>
 
 </Window>

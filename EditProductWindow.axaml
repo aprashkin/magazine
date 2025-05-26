@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="magazine_music.EditProductWindow"
+        x:CompileBindings="False"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="EditProductWindow">
+	<StackPanel Margin="20" Spacing="10" Width="400">
+		<TextBlock Text="Название:"/>
+		<TextBox x:Name="NameBox"/>
+
+		<TextBlock Text="Описание:"/>
+		<TextBox x:Name="DescriptionBox" AcceptsReturn="True" Height="100"/>
+
+		<TextBlock Text="Цена:"/>
+		<TextBox x:Name="PriceBox"/>
+
+		<TextBlock Text="Количество:"/>
+		<TextBox x:Name="QuantityBox"/>
+
+		<TextBlock Text="Бренд:"/>
+		<ComboBox x:Name="BrandComboBox" DisplayMemberBinding="{Binding BrandName}"/>
+
+		<TextBlock Text="Тип инструмента:"/>
+		<ComboBox x:Name="TypeComboBox" DisplayMemberBinding="{Binding TypeName}"/>
+
+		<TextBlock Text="Изображения:"/>
+		<ScrollViewer Height="220">
+			<ItemsControl ItemsSource="{Binding Images}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Center">
+							<Image Source="{Binding Bitmap}" Width="100" Height="100"/>
+							<Button Content="Удалить" Click="DeleteImage_Click" Tag="{Binding ImageId}" />
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<Button Content="Добавить картинку" Background="Transparent" BorderBrush="Gray" />
+
+		<StackPanel Orientation="Horizontal" Spacing="10" Margin="0,20,0,0">
+			<Button Name="SaveButton" Click="Button_Click_1" Content="Сохранить" Background="Transparent" BorderBrush="Gray"/>
+			<Button Content="Назад" Click="CancelButton_Click" Background="Transparent" BorderBrush="Gray"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

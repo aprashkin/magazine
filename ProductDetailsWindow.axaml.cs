@@ -19,11 +19,13 @@ public partial class ProductDetailsWindow : Window
         _product = product;
 
         LoadProductDetails();
+        EditButton.IsVisible = Session.CurrentUser.RoleId == 1;
     }
 
-    private void InitializeComponent()
+    public ProductDetailsWindow()
     {
-        AvaloniaXamlLoader.Load(this);
+        InitializeComponent();
+        
     }
 
     private void LoadProductDetails()
@@ -43,7 +45,7 @@ public partial class ProductDetailsWindow : Window
         }
         catch
         {
-            mainImage.Source = null;
+            mainImage.Source = new Bitmap("Товары/default.jpg");
         }
 
         // Загрузка всех изображений в ItemsControl
@@ -79,22 +81,21 @@ public partial class ProductDetailsWindow : Window
 
     private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        var button = this.FindControl<Button>("AddToCartButton");
-
-        if (button != null && !isInCart)
-        {
-            CartService.AddToCart(userId: Session.CurrentUser.UserId, _product.InstrumentId);
-            MessageBoxManager.GetMessageBoxStandard("Успешно", "Товар добавлен в корзину").ShowAsync();
-            button.Content = "Уже в корзине";
-            button.IsEnabled = false;
+            CartService.AddToCart(Session.CurrentUser.UserId, _product.InstrumentId);
             isInCart = true;
-        }
     }
 
     private void BackButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         var mainAppWindow = new MainAppWindow();
         mainAppWindow.Show();
+        this.Close();
+    }
+
+    private void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var editProductWindow = new EditProductWindow(_product);
+        editProductWindow.Show();
         this.Close();
     }
 }

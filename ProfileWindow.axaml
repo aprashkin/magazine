@@ -2,24 +2,46 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
         x:Class="magazine_music.ProfileWindow"
 		x:CompileBindings="False"
-		WindowStartupLocation="CenterScreen"
-		WindowState="Maximized"
-        Title="ProfileWindow">
-	<Grid ColumnDefinitions=".1* .4* .1*" RowDefinitions=".1* .5* .1*">
-		<StackPanel Grid.Column="1" Grid.Row="1" Margin="20" Spacing="10">
-			<TextBlock Text="Профиль пользователя" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="Профиль"
+        Background="#f8f9fa">
 
-			<TextBlock Text="{Binding UserFirstName}" FontSize="16"/>
-			<TextBlock Text="{Binding UserLastname}" FontSize="16"/>
-			<TextBlock Text="{Binding UserEmail}" FontSize="16"/>
-			<TextBlock Text="{Binding UserBirthday}" FontSize="16"/>
+	<Border Margin="40" CornerRadius="12" Background="White" Padding="30" >
+		<Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,*,Auto" ColumnDefinitions="1*">
+			<TextBlock Text="Профиль пользователя" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Margin="0 0 0 20"/>
+			<TextBlock Text="{Binding UserFirstName}" FontSize="16" Grid.Row="1"/>
+			<TextBlock Text="{Binding UserLastname}" FontSize="16" Grid.Row="2"/>
+			<TextBlock Text="{Binding UserEmail}" FontSize="16" Grid.Row="3"/>
+			<TextBlock Text="{Binding UserBirthday}" FontSize="16" Grid.Row="4"/>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Spacing="20" Grid.Row="5" Grid.Column="0" Margin="0 20">
+				
+				<Button Content="Сменить пользователя" Click="Logout_Click" Background="Transparent" BorderBrush="Gray" Padding="8,4"/>
+			</StackPanel>
+
+			<TextBlock Text="Ваша корзина:" FontSize="18" FontWeight="Bold" Grid.Row="6" Margin="0 20 0 10"/>
+
 			
+			<ListBox Grid.Row="6" Name="CartListBox" Margin="0,50,0,0">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
+							<TextBlock Text="{Binding InstrumentName}" Width="200" />
+							<TextBlock Text="Кол-во:"/>
+							<TextBlock Text="{Binding Quantity}" Width="40" />
+							<TextBlock Text="Цена:"/>
+							<TextBlock Text="{Binding Price}" Width="80" />
+							<Button Content="Удалить" Click="DeleteItem_Click" Tag="{Binding InstrumentId}" />
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
 
-			<Button Content="Выйти" Click="Logout_Click" Background="Transparent" BorderBrush="Gray" HorizontalAlignment="Center"/>
-		</StackPanel>
-		<Button Grid.Column="0" HorizontalAlignment="Center" Content="Назад" Background="Transparent" BorderBrush="Gray" Click="Button_Click"/>
-	</Grid>
+			<Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0"
+                    Click="Button_Click" Background="Transparent" BorderBrush="Gray" Grid.Row="7"/>
+		</Grid>
+	</Border>
 </Window>

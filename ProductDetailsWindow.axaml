@@ -1,7 +1,8 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="magazine_music.ProductDetailsWindow"
-        Width="600" Height="500"
+		x:CompileBindings="False"
+        Width="1920" Height="1080"
         Title="Детали товара"
 		WindowStartupLocation="CenterScreen"
 		WindowState="Maximized">
@@ -12,10 +13,11 @@
                 Content="Назад"
                 Width="100"
                 Height="40"
-                Background="#4CAF50"
-                Foreground="White"
+                Background="Transparent"
+                BorderBrush="Gray" CornerRadius="10"
                 FontSize="16"
                 FontWeight="Bold"
+					
                 HorizontalAlignment="Left"
                 Click="BackButton_Click"
                 Margin="10,10,0,0" />
@@ -49,11 +51,12 @@
         Name="AddToCartButton"
         Width="200"
         Height="40"
-        Background="#4CAF50"
-        Foreground="White"
+        Background="Transparent"
+	    BorderBrush="Gray"
         FontSize="16"
         FontWeight="Bold"
         HorizontalAlignment="Left"
+		
         Click="Button_Click"
         Margin="0,10,0,0"
         CornerRadius="8"/>
@@ -79,6 +82,14 @@
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
+			<Button x:Name="EditButton"
+        Content="Редактировать"
+        IsVisible="False"
+		Click="Button_Click_1"
+        HorizontalAlignment="Left"
+		Background="Transparent"
+	    BorderBrush="Gray"
+        Margin="0,10,10,0"/>
 		</StackPanel>
 	</ScrollViewer>
 </Window>

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 
 namespace magazine_music;
@@ -22,6 +23,15 @@ public partial class MainAppWindow : Window
         InitializeComponent();
         LoadData();
         LoadFilters();
+        HideAddButton();
+    }
+    private void HideAddButton()
+    {
+        
+        if (Session.CurrentUser.RoleId != 1) // Если не администратор
+        {
+            Add_Button.IsVisible = false;
+        }
     }
 
     public void LoadData()
@@ -74,7 +84,7 @@ public partial class MainAppWindow : Window
         public string TypeName { get; set; }
         public List<string> ImagePaths { get; set; } 
 
-        // Добавляем здесь свойство InstrumentPhoto, чтобы оно было доступно
+        
         public string InstrumentPhoto { get; set; }
 
         public Bitmap Image
@@ -83,14 +93,14 @@ public partial class MainAppWindow : Window
             {
                 try
                 {
-                    if (string.IsNullOrEmpty(InstrumentPhoto))
-                        return null;
+                    if (string.IsNullOrEmpty(InstrumentPhoto) || !File.Exists(InstrumentPhoto))
+                        return new Bitmap("Товары/default.jpg");
 
                     return new Bitmap(InstrumentPhoto);
                 }
                 catch
                 {
-                    return null;
+                    return new Bitmap("Товары/default.jpg");
                 }
             }
         }
@@ -112,17 +122,12 @@ public partial class MainAppWindow : Window
         BrandFilterComboBox.ItemsSource = brands;
         BrandFilterComboBox.SelectedIndex = 0;
     }
-
-    
-
-
-    private void Button_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void Button_Click_1(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         var profileWindow = new ProfileWindow();
         profileWindow.Show();
         this.Close();
     }
-
     private void SearchBox_KeyUp(object? sender, Avalonia.Input.KeyEventArgs e)
     {
         var query = SearchBox.Text?.Trim().ToLower();
@@ -168,7 +173,13 @@ public partial class MainAppWindow : Window
             (selectedType == null || selectedType.TypeId == 0 || p.TypeId == selectedType.TypeId) &&
             (selectedBrand == null || selectedBrand.BrandId == 0 || p.BrandId == selectedBrand.BrandId)
         ).ToList();
-
         ProductItemsControl.ItemsSource = filtered;
+    }
+
+    private void Button_Click_2(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var editWindow = new EditProductWindow();
+        editWindow.Show();
+        this.Close();
     }
 }

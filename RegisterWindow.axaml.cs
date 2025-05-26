@@ -110,13 +110,18 @@ public partial class RegisterWindow : Window
             ShowError("Введите фамилию!");
             return;
         }
-        if (!DateOfBirthPicker.SelectedDate.HasValue)
-        {
-            ShowError("Выберите дату рождения!");
-        }
+        
         DateTime today = DateTime.Today;
+
+        if (selectedDate == null)
+        {
+            ShowError("Пожалуйста, выберите дату рождения.");
+            return;
+        }
+
         int age = today.Year - selectedDate.Value.Year;
         if (selectedDate.Value.Date > today.AddYears(-age)) age--; // Учитываем день и месяц
+
         if (age < 16)
         {
             ShowError("Для регистрации вам должно быть не менее 16 лет.");
@@ -142,7 +147,7 @@ public partial class RegisterWindow : Window
         //проверяем почту
         if (!IsValidEmail(EmailTextBox.Text))
         {
-            ShowError("Неверный Email");
+            ShowError("Введите корректный адрес электронной почты!");
             return;
         }
         else
@@ -152,7 +157,7 @@ public partial class RegisterWindow : Window
                 bool emailExists = dbContext.Users.Any(u => u.UserEmail == EmailTextBox.Text);
                 if (emailExists)
                 {
-                    ShowError("Пользователь с таким Email уже зарегистрирован.");
+                    ShowError("Пользователь с такой почтой уже зарегистрирован.");
                     return;
                 }
 

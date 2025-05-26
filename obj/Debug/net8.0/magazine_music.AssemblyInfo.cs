@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("magazine_music")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f29c9a275e52529f2eb2404b246357890131197b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+feec694b1668d5296b68e646016fa819124995d3")]
 [assembly: System.Reflection.AssemblyProductAttribute("magazine_music")]
 [assembly: System.Reflection.AssemblyTitleAttribute("magazine_music")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

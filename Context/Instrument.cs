@@ -23,7 +23,5 @@ public partial class Instrument
 
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
     public virtual InstrumentsType? Type { get; set; }
 }

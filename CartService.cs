@@ -1,5 +1,6 @@
 ﻿using magazine_music.Context;
 using Microsoft.EntityFrameworkCore;
+using MsBox.Avalonia;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,9 @@ namespace magazine_music
         {
             using var db = new User9Context();
 
-            var cartStatus = db.Statuses.FirstOrDefault(s => s.StatusName == "Cart");
-            if (cartStatus == null) return;
-            // Найдём или создадим заказ-корзину
-            var cart = db.Orders
-                .Include(o => o.OrderItems)
-                .FirstOrDefault(o => o.UserId == userId && o.StatusId == cartStatus.StatusId);
+            var cartStatus = db.Statuses.FirstOrDefault(s => s.StatusName == "В корзине");      
+            var cart = db.Orders.FirstOrDefault(o => o.UserId == userId && o.StatusId == cartStatus.StatusId);
+
             if (cart == null)
             {
                 cart = new Order
@@ -32,6 +30,9 @@ namespace magazine_music
                 };
                 db.Orders.Add(cart);
                 db.SaveChanges();
+
+                Console.WriteLine("Создан заказ для пользователя: " + userId);
+                MessageBoxManager.GetMessageBoxStandard("Успешно", "Товар добавлен в корзину" ).ShowAsync();
             }
 
             var existingItem = db.OrderItems
@@ -44,7 +45,11 @@ namespace magazine_music
             else
             {
                 var instrument = db.Instruments.FirstOrDefault(i => i.InstrumentId == instrumentId);
-                if (instrument == null) return;
+                if (instrument == null)
+                {
+                    Console.WriteLine("Инструмент не найден");
+                    return;
+                }
 
                 db.OrderItems.Add(new OrderItem
                 {
@@ -57,5 +62,6 @@ namespace magazine_music
 
             db.SaveChanges();
         }
+
     }
 }
